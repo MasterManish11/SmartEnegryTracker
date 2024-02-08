@@ -18,8 +18,11 @@
 
 
 body{
-  @apply bg-gradient-to-r from-[#181F52] via-[#1C4671] to-[#205C84] min-h-screen
+  @apply bg-gradient-to-r from-slate-900 to-gray-600 min-h-screen
 }
+/* body{
+  @apply bg-gradient-to-r from-[#181F52] via-[#1C4671] to-[#205C84] min-h-screen
+} */
 
 .content-container {
   @apply xl:max-w-7xl lg:max-w-5xl px-3 py-3 mt-2 rounded mx-auto;
@@ -88,3 +91,11 @@ nav{
 .flex-card{
   @apply flex justify-center items-center
 }
+
+
+.highcharts-container {
+  @apply max-h-48  !bg-slate-400
+}
+/* .highcharts-background{
+  @apply fill-gray-600
+} */

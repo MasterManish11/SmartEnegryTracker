@@ -12,17 +12,17 @@ const UserStatus = () => {
         <div className="flex items-center">
           <button
             onClick={() => logout()}
-            className="p-1 text-white font-semibold"
+            className="p-1 text-white font-semibold hover:bg-gray-600 rounded"
           >
             Logout
           </button>
           <ArrowLongRightIcon className="h-6 w-6 text-white" aria-hidden="true" />
         </div>
       ) : (
-        <div className="flex items-center">
+        <div className="flex items-center hover:bg-gray-600 rounded">
           <button
             onClick={() => login()}
-            className="p-1 text-white font-semibold"
+            className="p-1 text-white font-semibold "
           >
             Login
           </button>

@@ -18,6 +18,8 @@
     "eslint": "8.49.0",
     "eslint-config-next": "13.5.2",
     "export-to-csv": "^1.0.0",
+    "highcharts": "^11.3.0",
+    "highcharts-react-official": "^3.2.1",
     "jsonwebtoken": "^9.0.2",
     "jspdf-autotable": "^3.6.0",
     "multiselect-react-dropdown": "^2.0.25",

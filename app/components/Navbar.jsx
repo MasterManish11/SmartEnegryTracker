@@ -71,7 +71,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="bg-[#181745]">
+    <header className="bg-gradient-to-r from-gray-800 to-gray-700  rounded border-b-2 border-x-2 border-white">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
@@ -101,7 +101,7 @@ export default function Navbar() {
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
-            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white">
+            <Popover.Button className="flex items-center gap-x-1 p-1 text-sm font-semibold leading-6 text-white hover:bg-gray-600 hover:rounded">
               Report
               <ChevronDownIcon
                 className="h-5 w-5 flex-none text-white"
@@ -144,28 +144,18 @@ export default function Navbar() {
                   ))}
                 </div>
                 <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                  {/* {callsToAction.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                    >
-                      <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-                      {item.name}
-                    </Link>
-                  ))} */}
                 </div>
               </Popover.Panel>
             </Transition>
           </Popover>
 
-          <Link href="/" className="text-sm font-semibold leading-6 text-white">
+          <Link href="/" className="text-sm p-1 font-semibold leading-6 text-white hover:bg-gray-600 rounded ">
             Dashboard
           </Link>
           <Link
             target="_blank"
             href="https://rsautomation.in/"
-            className="text-sm font-semibold leading-6 text-white"
+            className="text-sm p-1  font-semibold leading-6 text-white hover:bg-gray-600 rounded"
           >
             AboutUs
           </Link>
@@ -251,20 +241,8 @@ export default function Navbar() {
                 >
                   AboutUs
                 </Link>
-                {/* <Link
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                  Company
-                </Link> */}
               </div>
               <div className="py-6">
-                {/* <Link
-                  href="/auth/login"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                  Log in
-                </Link> */}
                 <UserStatusMobile />
               </div>
             </div>

@@ -64,7 +64,7 @@ const DashboardData = () => {
   return (
     <div className="content-container">
     <Swiper
-      spaceBetween={20}
+      spaceBetween={10}
       navigation={true}
       modules={[Navigation,Pagination]}
       breakpoints={{
@@ -73,7 +73,7 @@ const DashboardData = () => {
           slidesPerView: 2,
         },
         640: {
-          slidesPerView: 3,
+          slidesPerView: 2,
         },
         768: {
           slidesPerView: 4,
