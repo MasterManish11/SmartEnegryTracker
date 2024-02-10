@@ -1,5 +1,5 @@
 import React from "react";
-import PieChart from "./PieChart";
+import PieChart from "./charts/PieChart";
 
 const MachineData = ({ data }) => {
   // const pieChartData = [
@@ -13,7 +13,7 @@ const MachineData = ({ data }) => {
     { name: "Efficiency", y: efficiencyValue },
     {
       name: "Remaining",
-      y: 100 - efficiencyValue,
+      y: (100 - efficiencyValue)
     },
   ];
   return (
