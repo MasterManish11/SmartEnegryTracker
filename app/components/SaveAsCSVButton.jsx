@@ -24,7 +24,7 @@ const SaveAsCSVButton = ({ data }) => {
 
   return (
     <button
-      className="w-full p-2 lg:mt-6 bg-[#1E7E9E] hover:bg-[#39ADBD] rounded font-semibold text-white"
+      className="w-full p-2 lg:mt-6 bg-[#19DAAD] hover:bg-[#19DABF] rounded font-semibold text-[#162637]"
       onClick={saveAsCSV}
     >
       <span>Save As CSV</span>

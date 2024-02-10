@@ -146,10 +146,10 @@ const ProductionDetailReport = () => {
           </div>
           <div>
             <button
-              className="w-full p-2 lg:mt-6 bg-[#1E7E9E]  hover:bg-[#39ADBD] rounded font-semibold text-white"
+              className="w-full p-2 lg:mt-6 bg-[#19DAAD] hover:bg-[#19DABF] rounded font-semibold text-[#162637]"
               type="submit"
             >
-              View
+              Search
             </button>
           </div>
           <div>

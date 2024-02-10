@@ -108,7 +108,7 @@ const EnergyDetailReport = () => {
             </label>
 
             <select
-              className="w-full rounded p-1 py-[0.4rem] border-2 border-gray-100 lg:text-base text-sm"
+              className="w-full rounded p-1 py-[0.4rem] border-2 border-gray-100 lg:text-base text-sm "
               name="energymeter"
               id="energymeter"
               onChange={inputEvent}
@@ -153,11 +153,11 @@ const EnergyDetailReport = () => {
           </div>
           <div>
             <button
-              className="w-full lg:mt-6 p-2 bg-[#1E7E9E]  hover:bg-[#39ADBD] rounded font-semibold text-white"
+              className="w-full lg:mt-6 p-2 bg-[#19DAAD]  hover:bg-[#19DABF] rounded font-semibold text-[#162637]"
               type="button"  // Change to type="button" to prevent form submission
                onClick={showResult}
             >
-              View
+              Search
             </button>
           </div>
           <div>

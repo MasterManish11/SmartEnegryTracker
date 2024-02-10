@@ -53,7 +53,7 @@ h1{
   @apply w-full min-w-full border-collapse text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400
 } */
 .thead{
-  @apply sticky top-0 z-10 text-xs text-gray-50 bg-[#1C4671] uppercase 
+  @apply sticky top-0 z-10 text-xs bg-[#19DAAD] uppercase text-[#162637]
 }
 /* .thead{
   @apply sticky top-0 z-10 text-xs text-gray-50 bg-[#1C4671] uppercase dark:bg-gray-700 dark:text-gray-400
