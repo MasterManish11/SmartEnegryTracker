@@ -61,7 +61,7 @@ const DashboardData = () => {
       setIsMounted(false);
       clearInterval(interval);
     };
-  }, [fetchData]);
+  }, []);
   // min-h-screen rounded overflow-hidden px-2 grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 gap-4 py-2
   return (
     <div className="content-container">
