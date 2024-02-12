@@ -4,7 +4,7 @@ import useAuth from "../useAuth";
 import { getCookie } from "cookies-next";
 import RSLogo from "../../public/RSLogo.png";
 import RSLogoMobile from "../../public/RSLogoMobile.png";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, useRef } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import {
   ArrowPathIcon,
@@ -64,6 +64,7 @@ export default function Navbar() {
   const [currentUser, setCurrentUser] = useState("");
   const { isLoggedIn } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const popoverRef = useRef(null);
 
   useEffect(() => {
     const loggedUser = getCookie("user");
@@ -96,11 +97,11 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6 text-white" aria-hidden="true"  />
+            <Bars3Icon className="h-6 w-6 text-white" aria-hidden="true" />
           </button>
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <Popover className="relative">
+          <Popover ref={popoverRef} className="relative">
             <Popover.Button className="flex items-center gap-x-1 p-1 text-sm font-semibold leading-6 text-white hover:bg-gray-600 hover:rounded">
               Report
               <ChevronDownIcon
@@ -122,34 +123,42 @@ export default function Navbar() {
                 <div className="p-4">
                   {products.map((item) => (
                     <div
-                      key={item.name}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-2 text-sm leading-6 hover:bg-gray-50"
+                      onClick={() => {
+                        popoverRef.current && popoverRef.current.click();
+                      }}
                     >
-                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon
-                          className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-                          aria-hidden="true"
-                        />
-                      </div>
-                      <div className="flex-auto">
-                        <Link
-                          href={item.href}
-                          className="block font-semibold text-gray-900"
-                        >
-                          {item.name}
-                          <span className="absolute inset-0" />
-                        </Link>
+                      <div
+                        key={item.name}
+                        className="group relative flex items-center gap-x-6 rounded-lg p-2 text-sm leading-6 hover:bg-gray-50"
+                      >
+                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                          <item.icon
+                            className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <div className="flex-auto">
+                          <Link
+                            href={item.href}
+                            className="block font-semibold text-gray-900"
+                          >
+                            {item.name}
+                            <span className="absolute inset-0" />
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                </div>
+                <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50"></div>
               </Popover.Panel>
             </Transition>
           </Popover>
 
-          <Link href="/" className="text-sm p-1 font-semibold leading-6 text-white hover:bg-gray-600 rounded ">
+          <Link
+            href="/"
+            className="text-sm p-1 font-semibold leading-6 text-white hover:bg-gray-600 rounded "
+          >
             Dashboard
           </Link>
           <Link
