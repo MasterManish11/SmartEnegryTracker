@@ -1,5 +1,6 @@
-"use client";
-import React, { useState, useEffect } from "react";
+'use client'
+import React from "react";
+import useSWR from "swr";
 import MachineData from "./MachineData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -12,57 +13,28 @@ import internetError from "../../public/internetConnectivityError.svg";
 import ProductionBarChartDashboard from "./charts/ProductionBarChartDashboard";
 import SpeedLineChartDashboard from "./charts/SpeedLineChartDashboard";
 
+// Define the fetcher function
+const fetcher = async (url) => {
+  const response = await fetch(url, { cache: "no-store" });
+  const responseData = await response.json();
+
+  if (responseData.message) {
+    throw new Error(responseData.message);
+  }
+
+  return responseData;
+};
+
 const DashboardData = () => {
-  const [machineData, setMachineData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [isMounted, setIsMounted] = useState(true);
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(url, { cache: "no-store" });
-      const responseData = await response.json();
-
-      if (responseData.message) {
-        setErrorMessage(responseData.message);
-        setMachineData([]);
-      } else {
-        setMachineData(responseData);
-        setErrorMessage(null);
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setErrorMessage("An error occurred while fetching data.");
-    } finally {
-      if (isMounted) {
-        setLoading(false);
-      }
-    }
-  };
-
-  const url =
+  const { data: machineData, error: errorMessage } = useSWR(
     process.env.NODE_ENV !== "production"
       ? `${process.env.NEXT_PUBLIC_LOCAL_HOST}api/dashboard`
-      : `${process.env.NEXT_PUBLIC_DOMAIN_NAME}api/dashboard`;
+      : `${process.env.NEXT_PUBLIC_DOMAIN_NAME}api/dashboard`,
+      fetcher,{ refreshInterval: 5000 }
+  );
 
-  useEffect(() => {
-    setIsMounted(true);
+  const loading = !machineData && !errorMessage;
 
-    const fetchDataAndReload = async () => {
-      await fetchData();
-      // Additional logic for HotReload can be placed here
-    };
-
-    fetchDataAndReload();
-
-    const interval = setInterval(fetchDataAndReload, 5000);
-
-    return () => {
-      setIsMounted(false);
-      clearInterval(interval);
-    };
-  }, []);
-  // min-h-screen rounded overflow-hidden px-2 grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 gap-4 py-2
   return (
     <div className="content-container">
       <Swiper
@@ -71,7 +43,6 @@ const DashboardData = () => {
         modules={[Navigation, Pagination]}
         breakpoints={{
           520: {
-            // when window width is >= 520px
             slidesPerView: 2,
           },
           640: {

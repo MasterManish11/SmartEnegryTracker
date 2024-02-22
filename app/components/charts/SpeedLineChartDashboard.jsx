@@ -30,7 +30,7 @@ const SpeedLineChartDashboard = ({ data }) => {
       },
     },
     xAxis: {
-      categories: data.map((d) => d.Machine_no),
+      categories: data && data.map((d) => d.Machine_no),
       title: {
         text: "Machines",
         style: {
@@ -92,7 +92,7 @@ const SpeedLineChartDashboard = ({ data }) => {
     series: [
       {
         name: "Speed ",
-        data: data.map((item) => parseFloat(item.Speed)),
+        data:  data && data.map((item) => parseFloat(item.Speed)),
       },
     ],
   };

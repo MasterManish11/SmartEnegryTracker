@@ -1,14 +1,16 @@
 "use client";
 import React, { useState } from "react";
-import { Fragment } from "react";
+import { Fragment, lazy, Suspense } from "react";
 import Loader from "@/app/components/Loader";
-import KwhrLineChart from "@/app/components/KwhrLineChart";
+// import KwhrLineChart from "@/app/components/KwhrLineChart";
 import internetError from "../../../../public/internetConnectivityError.svg";
 import Image from "next/image";
 import { Tab } from "@headlessui/react";
 import ReportTitle from "@/app/components/ReportTitle";
 import SaveAsCSVButton from "@/app/components/SaveAsCSVButton";
 import SaveAsPDFButton from "@/app/components/SaveAsPDFButton";
+import ChartLoader from "@/app/components/ChartLoader";
+const KwhrLineChart = lazy(() => import("@/app/components/KwhrLineChart"));
 
 const EnergyDetailReport = () => {
   const [answer, setAnswer] = useState([]);
@@ -32,8 +34,6 @@ const EnergyDetailReport = () => {
       };
     });
   };
-
- 
 
   const showResult = async (event) => {
     event.preventDefault();
@@ -320,7 +320,9 @@ const EnergyDetailReport = () => {
                   </p>
                 </div>
               ) : (
+                <Suspense fallback={<ChartLoader/>}>
                 <KwhrLineChart data={answer} />
+              </Suspense>
               )}
             </Tab.Panel>
           </Tab.Panels>
