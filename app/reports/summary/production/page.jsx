@@ -63,7 +63,11 @@ const ProductionSummaryReport = () => {
       event.preventDefault();
 
       // Define the API endpoint
-      const apiUrl = "/api/summary/production";
+      // const apiUrl = "/api/summary/production";
+
+    const apiUrl =  process.env.NODE_ENV !== "production"
+      ? `${process.env.NEXT_PUBLIC_LOCAL_HOST}api/summary/production`
+      : `${process.env.NEXT_PUBLIC_DOMAIN_NAME}api/summary/production`;
 
       // Prepare the request options
       const requestOptions = {
