@@ -2,12 +2,7 @@ import React from "react";
 import PieChart from "./charts/PieChart";
 
 const MachineData = ({ data }) => {
-  // const pieChartData = [
-  //   { name: 'Category A', y: 30 },
-  //   { name: 'Category B', y: 20 },
-  //   { name: 'Category C', y: 50 },
-  // ];
-
+  
   const efficiencyValue = data.Efficiency ? parseFloat(data.Efficiency) : 0;
   const pieChartData = [
     { name: "Efficiency", y: efficiencyValue },
