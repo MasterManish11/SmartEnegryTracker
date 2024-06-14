@@ -40,11 +40,11 @@ const DashboardData = () => {
     }
   };
 
-  const url = "/api/dashboard";
-  // const url =
-  //   process.env.NODE_ENV !== "production"
-  //     ? `${process.env.NEXT_PUBLIC_LOCAL_HOST}api/dashboard`
-  //     : `${process.env.NEXT_PUBLIC_DOMAIN_NAME}api/dashboard`;
+  // const url = "/api/dashboard";
+  const url =
+    process.env.NODE_ENV !== "production"
+      ? `${process.env.NEXT_PUBLIC_LOCAL_HOST}api/dashboard`
+      : `${process.env.NEXT_PUBLIC_DOMAIN_NAME}api/dashboard`;
 
   useEffect(() => {
     setIsMounted(true);
