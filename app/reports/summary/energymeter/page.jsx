@@ -61,11 +61,11 @@ const EnergySummaryReport = () => {
       event.preventDefault();
 
       // Define the API endpoint
-      // const apiUrl = "/api/summary/energymeter";
+      const apiUrl = "/api/summary/energymeter";
 
-      const apiUrl =  process.env.NODE_ENV !== "production"
-      ? `${process.env.NEXT_PUBLIC_LOCAL_HOST}api/summary/energymeter`
-      : `${process.env.NEXT_PUBLIC_DOMAIN_NAME}api/summary/energymeter`;
+      // const apiUrl =  process.env.NODE_ENV !== "production"
+      // ? `${process.env.NEXT_PUBLIC_LOCAL_HOST}api/summary/energymeter`
+      // : `${process.env.NEXT_PUBLIC_DOMAIN_NAME}api/summary/energymeter`;
 
       // Prepare the request options
       const requestOptions = {

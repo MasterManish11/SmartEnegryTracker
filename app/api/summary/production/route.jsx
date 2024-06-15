@@ -6,7 +6,7 @@ export const revalidate = true;
 async function checkInternetConnectivity() {
   try {
     const response = await fetch(
-      "https://www.google.com"
+      "https://jsonplaceholder.typicode.com/todos/1"
     );
     return response.ok;
   } catch (error) {

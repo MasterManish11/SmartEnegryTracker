@@ -36,11 +36,11 @@ const ProductionDetailReport = () => {
       event.preventDefault();
       setLoading(true);
 
-      // const apiUrl = "/api/detail/production";
-      const apiUrl =
-      process.env.NODE_ENV !== "production"
-        ? `${process.env.NEXT_PUBLIC_LOCAL_HOST}api/detail/production`
-        : `${process.env.NEXT_PUBLIC_DOMAIN_NAME}api/detail/production`;
+      const apiUrl = "/api/detail/production";
+      // const apiUrl =
+      // process.env.NODE_ENV !== "production"
+      //   ? `${process.env.NEXT_PUBLIC_LOCAL_HOST}api/detail/production`
+      //   : `${process.env.NEXT_PUBLIC_DOMAIN_NAME}api/detail/production`;
       // Prepare the request options
       const requestOptions = {
         method: "POST",
